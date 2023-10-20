@@ -13,10 +13,10 @@ public class BlobTriggerFunction {
     @FunctionName("BlobTrigger-Java")
     @StorageAccount("MyStorageConnectionAppSetting")
     public void run(
-        @BlobTrigger(name = "content", path = "mycontainer/images", dataType = "binary") byte[] content,
+        @BlobTrigger(name = "content", path = "Containers/images", dataType = "binary") byte[] content,
         @BindingName("name") String name,
-        @BlobInput(name = "inputBlob", path = "test-input-java/images", dataType = "binary") byte[] inputBlob,
-        @BlobOutput(name = "outputBlob", path = "test-output-java/thumbnails", dataType = "binary") OutputBinding<byte[]> outputBlob,
+        @BlobInput(name = "inputBlob", path = "Containers/images", dataType = "binary") byte[] inputBlob,
+        @BlobOutput(name = "outputBlob", path = "Containers/thumbnails", dataType = "binary") OutputBinding<byte[]> outputBlob,
         final ExecutionContext context
     ) {
         context.getLogger().info("Java Blob trigger function processed a blob. Name: " + name + "\n  Size: " + content.length + " Bytes");
